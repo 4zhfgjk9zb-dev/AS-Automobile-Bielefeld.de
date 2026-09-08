@@ -2,6 +2,8 @@ const $ = (s) => document.querySelector(s);
 const grid = $("#vehicle-grid");
 const statusPill = $("#mobile-status");
 let vehicles = [];
+let showAllVehicles = false;
+const INITIAL_VEHICLE_COUNT = 8;
 
 const MOBILE_API = "https://as-automobile-mobile-api.onrender.com/api/vehicles";
 
@@ -141,10 +143,13 @@ function render(items) {
       <h3>Keine Fahrzeuge für diesen Filter</h3>
       <p>Bitte Filter anpassen oder alle Filter zurücksetzen.</p>
     </article>`;
+    updateVehicleToggle(0);
     return;
   }
 
-  grid.innerHTML = items.map(v => `
+  const visibleItems = showAllVehicles ? items : items.slice(0, INITIAL_VEHICLE_COUNT);
+
+  grid.innerHTML = visibleItems.map(v => `
     <article class="vehicle-card">
       ${v.image
         ? `<img src="${safeUrl(v.image)}" alt="${escapeHtml(v.title)}" loading="lazy">`
@@ -164,6 +169,25 @@ function render(items) {
         </a>
       </div>
     </article>`).join("");
+
+  updateVehicleToggle(items.length);
+}
+
+function updateVehicleToggle(total) {
+  const wrap = $("#vehicle-toggle-wrap");
+  const btn = $("#vehicle-toggle");
+  if (!wrap || !btn) return;
+
+  if (total <= INITIAL_VEHICLE_COUNT) {
+    wrap.hidden = true;
+    return;
+  }
+
+  wrap.hidden = false;
+  btn.textContent = showAllVehicles
+    ? "Weniger Fahrzeuge anzeigen"
+    : `Alle ${total} Fahrzeuge anzeigen`;
+  btn.setAttribute("aria-expanded", String(showAllVehicles));
 }
 
 function applyFilters() {
@@ -181,14 +205,28 @@ function applyFilters() {
 }
 
 ["#filter-make", "#filter-model", "#filter-price", "#filter-fuel"].forEach(id =>
-  $(id)?.addEventListener("change", applyFilters)
+  $(id)?.addEventListener("change", () => {
+    showAllVehicles = false;
+    applyFilters();
+  })
 );
 
 $("#reset-filters")?.addEventListener("click", () => {
+  showAllVehicles = false;
   ["#filter-make", "#filter-model", "#filter-price", "#filter-fuel"].forEach(id => {
     $(id).value = "";
   });
   applyFilters();
+});
+
+
+$("#vehicle-toggle")?.addEventListener("click", () => {
+  showAllVehicles = !showAllVehicles;
+  applyFilters();
+
+  if (!showAllVehicles) {
+    document.querySelector("#fahrzeuge")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 });
 
 async function loadVehicles() {
