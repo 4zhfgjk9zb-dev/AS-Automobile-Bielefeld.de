@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AS Automobile Bielefeld – Opel Vertragspartner, Neu- und Gebrauchtwagen, Finanzierung, Service und Werkstatt.">
+  <title>AS Automobile Bielefeld</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-contact">
+        <a href="tel:+4952196798600">☎ 0521 96798600</a>
+        <a href="mailto:info@as-automobile.com">✉ info@as-automobile.com</a>
+        <span>⌖ Herforder Straße 84, 33602 Bielefeld</span>
+      </div>
+      <a class="topbar-cta" href="#kontakt">Termin anfragen</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#start" aria-label="AS Automobile Bielefeld Startseite">
+        <span class="brand-plate">
+          <img src="assets/as-automobile-logo.jpg" alt="AS Automobile und Opel Logo">
+        </span>
+      </a>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="mainnav">☰</button>
+
+      <nav id="mainnav" class="mainnav" aria-label="Hauptnavigation">
+        <a href="#start">Startseite</a>
+        <a href="#fahrzeuge">Fahrzeuge</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#team">Team</a>
+        <a href="#standort">Standort</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="partner-badge" aria-label="Opel Vertragspartner">
+        <span class="opel-ring">⚡</span>
+        <span>OPEL<br><small>Vertragspartner</small></span>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="start" class="hero">
+      <img class="hero-bg" src="assets/autohaus-front.jpeg" alt="AS Automobile Bielefeld an der Herforder Straße">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">IHR AUTOMOBILPARTNER IN BIELEFELD</p>
+        <h1>AS Automobile<br>Bielefeld</h1>
+        <p class="hero-copy">Persönliche Beratung, starke Fahrzeuge und ein Ansprechpartner, der für Sie da ist.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#fahrzeuge">Fahrzeuge entdecken</a>
+          <a class="btn btn-ghost" href="#kontakt">Kontakt aufnehmen</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustbar" aria-label="Unsere Stärken">
+      <div class="container trust-grid">
+        <div><strong>Opel Vertragspartner</strong><span>Markenkompetenz vor Ort</span></div>
+        <div><strong>Neu- & Gebrauchtwagen</strong><span>Markenübergreifende Auswahl</span></div>
+        <div><strong>Finanzierung</strong><span>Individuelle Lösungen</span></div>
+        <div><strong>Service & Werkstatt</strong><span>Auch nach dem Kauf</span></div>
+      </div>
+    </section>
+
+    <section id="fahrzeuge" class="section vehicles-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow dark">LIVE-FAHRZEUGBESTAND</p>
+            <h2>Unsere aktuellen Fahrzeuge</h2>
+            <p>Dieser Bereich ist bereits für die automatische Übernahme der AS-Automobile-Inserate von mobile.de vorbereitet.</p>
+          </div>
+          <div class="live-pill" id="mobile-status"><span></span> mobile.de Verbindung ausstehend</div>
+        </div>
+
+        <div class="filters" aria-label="Fahrzeugfilter">
+          <label>Marke
+            <select id="filter-make"><option value="">Alle Marken</option></select>
+          </label>
+          <label>Modell
+            <select id="filter-model"><option value="">Alle Modelle</option></select>
+          </label>
+          <label>Preis bis
+            <select id="filter-price">
+              <option value="">Beliebig</option>
+              <option value="15000">15.000 €</option>
+              <option value="20000">20.000 €</option>
+              <option value="30000">30.000 €</option>
+              <option value="40000">40.000 €</option>
+              <option value="50000">50.000 €</option>
+            </select>
+          </label>
+          <label>Kraftstoff
+            <select id="filter-fuel"><option value="">Alle</option></select>
+          </label>
+          <button class="btn btn-primary filter-reset" id="reset-filters">Filter zurücksetzen</button>
+        </div>
+
+        <div id="vehicle-grid" class="vehicle-grid" aria-live="polite">
+          <article class="vehicle-placeholder">
+            <div class="placeholder-icon">🚗</div>
+            <h3>mobile.de API noch nicht verbunden</h3>
+            <p>Sobald mobile.de die Inserats-Einbindung freigeschaltet hat und die Zugangsdaten serverseitig hinterlegt sind, erscheinen hier automatisch die aktuellen Fahrzeuge.</p>
+            <a class="btn btn-outline" href="https://home.mobile.de/ASAUTOMOBILEGROUP" target="_blank" rel="noopener">Aktuelle Inserate auf mobile.de ansehen</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="section team-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow dark">PERSÖNLICH FÜR SIE DA</p>
+            <h2>Unser Team</h2>
+            <p>Kompetente Ansprechpartner für Verkauf, Service, Werkstatt und Verwaltung.</p>
+          </div>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card featured">
+            <div class="avatar">NA</div>
+            <div class="team-body">
+              <h3>Necati Aslan</h3>
+              <p class="role">Inhaber / Geschäftsführer</p>
+              <div class="team-actions">
+                <a href="tel:+4952196798600">☎ 0521 96798600</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="avatar">TA</div>
+            <div class="team-body">
+              <h3>Tayfun Aslan</h3>
+              <p class="role">Verkaufsleiter / Prokurist</p>
+              <div class="team-actions">
+                <a href="tel:+495219679860203">☎ 0521 9679860-203</a>
+                <a href="mailto:tayfun.aslan@as-automobile.com">✉ E-Mail</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="avatar">AA</div>
+            <div class="team-body">
+              <h3>Aylin Aslan</h3>
+              <p class="role">Service & Ersatzteileleiterin</p>
+              <div class="team-actions">
+                <a href="tel:+495219679860205">☎ 0521 9679860-205</a>
+                <a href="mailto:aylin.aslan@as-automobile.com">✉ E-Mail</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="avatar">CA</div>
+            <div class="team-body">
+              <h3>Christian Aßmann</h3>
+              <p class="role">Werkstattleiter</p>
+              <div class="team-actions">
+                <a href="tel:+495219679860205">☎ 0521 9679860-205</a>
+                <a href="mailto:info@as-automobile.com">✉ E-Mail</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="avatar">SN</div>
+            <div class="team-body">
+              <h3>Sultan Ahmad Noori</h3>
+              <p class="role">Auszubildender Automobilkaufmann</p>
+              <div class="team-actions">
+                <a href="tel:+495219679860203">☎ 0521 9679860-203</a>
+                <a href="mailto:sultan.noori@as-automobile.com">✉ E-Mail</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="avatar">JS</div>
+            <div class="team-body">
+              <h3>Jana Szkudlarek</h3>
+              <p class="role">Buchhaltung & Controlling</p>
+              <div class="team-actions">
+                <a href="mailto:info@as-automobile.com">✉ E-Mail</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="avatar">AT</div>
+            <div class="team-body">
+              <h3>Atilla Aslan</h3>
+              <p class="role">KFZ-Mechaniker</p>
+              <div class="team-actions">
+                <a href="#kontakt">Kontakt über Zentrale</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="fineprint">Hinweis: Die Durchwahlen 203/205 wurden aus den gelieferten Nummern abgeleitet und sollten vor Veröffentlichung noch einmal bestätigt werden.</p>
+      </div>
+    </section>
+
+    <section id="leistungen" class="section services-section">
+      <div class="container services-grid">
+        <article><span>🚘</span><h3>Neuwagen</h3><p>Aktuelle Opel Modelle und persönliche Beratung.</p></article>
+        <article><span>🔄</span><h3>Gebrauchtwagen</h3><p>Geprüfte Fahrzeuge verschiedener Marken.</p></article>
+        <article><span>€</span><h3>Leasing & Finanzierung</h3><p>Individuelle Lösungen passend zu Ihren Wünschen.</p></article>
+        <article><span>⇄</span><h3>Inzahlungnahme</h3><p>Ihr aktuelles Fahrzeug fair und unkompliziert bewerten lassen.</p></article>
+        <article><span>🔧</span><h3>Service & Werkstatt</h3><p>Kompetente Betreuung auch nach dem Fahrzeugkauf.</p></article>
+      </div>
+    </section>
+
+    <section id="standort" class="location-section">
+      <div class="location-photo">
+        <img src="assets/autohaus-einfahrt.jpg" alt="Einfahrt zu AS Automobile Bielefeld">
+      </div>
+      <div class="location-content">
+        <p class="eyebrow">UNSER STANDORT</p>
+        <h2>Mitten in Bielefeld</h2>
+        <p class="address">Herforder Straße 84<br>33602 Bielefeld</p>
+        <p>Besuchen Sie uns vor Ort und entdecken Sie unseren Fahrzeugbestand.</p>
+        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=AS+Automobile+Herforder+Stra%C3%9Fe+84+Bielefeld" target="_blank" rel="noopener">Route planen</a>
+      </div>
+    </section>
+
+    <section class="wide-image-section">
+      <img src="assets/autohaus-bestand.jpg" alt="Fahrzeugbestand von AS Automobile Bielefeld">
+      <div class="wide-image-copy">
+        <p class="eyebrow">AS AUTOMOBILE</p>
+        <h2>Fahrzeuge für unterschiedliche Ansprüche</h2>
+        <p>Vom Opel Neuwagen bis zum markenübergreifenden Gebrauchtwagen.</p>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section contact-section">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow dark">KONTAKT</p>
+          <h2>Wie können wir Ihnen helfen?</h2>
+          <p>Rufen Sie direkt an oder schreiben Sie uns eine E-Mail. Eine WhatsApp-Schaltfläche ergänzen wir, sobald die gewünschte Mobilnummer feststeht.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="contact-tile" href="tel:+4952196798600"><strong>☎ Anrufen</strong><span>0521 96798600</span></a>
+          <a class="contact-tile" href="mailto:info@as-automobile.com"><strong>✉ E-Mail</strong><span>info@as-automobile.com</span></a>
+          <a class="contact-tile" href="https://www.google.com/maps/search/?api=1&query=AS+Automobile+Herforder+Stra%C3%9Fe+84+Bielefeld" target="_blank" rel="noopener"><strong>⌖ Anfahrt</strong><span>Herforder Straße 84</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-plate footer-logo">
+          <img src="assets/as-automobile-logo.jpg" alt="AS Automobile und Opel Logo">
+        </span>
+        <p>AS Automobile Bielefeld<br>Herforder Straße 84 · 33602 Bielefeld</p>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <a href="tel:+4952196798600">0521 96798600</a>
+        <a href="mailto:info@as-automobile.com">info@as-automobile.com</a>
+      </div>
+      <div>
+        <h3>Rechtliches</h3>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">© <span id="year"></span> AS Automobile Bielefeld</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
