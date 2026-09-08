@@ -62,3 +62,16 @@ Die genauen DNS-Schritte sollten erst durchgeführt werden, wenn die Cloudflare-
 - Das AS-Logo im Hero ist kleiner und weiter links positioniert.
 - Dadurch bleibt die echte Beschriftung „AS Automobile“ auf dem Hintergrundfoto besser sichtbar.
 - Das Fahrzeugmotiv im AS-Logo wird nicht gequetscht; das Seitenverhältnis bleibt unverändert.
+
+## Design v5
+- „Opel Vertragspartner“ wurde in „Opel Servicepartner“ geändert.
+- Hero-Claim: „Seit 1998 · Persönlich. Verlässlich. Für Sie da.“
+- Unter dem unveränderten AS-Logo: „Ihr Opel Servicepartner in Bielefeld“.
+- Die vom Nutzer bereitgestellte Auto Bild / Statista 2024 Grafik (Note 1,8) wurde unverändert als eigener Auszeichnungsbereich weiter unten auf der Seite eingebaut.
+
+
+## Finale Hero-Anpassung
+- Grundlage ist wieder die vorherige v5-Variante.
+- Gelber Text „SEIT 1998 · PERSÖNLICH. VERLÄSSLICH. FÜR SIE DA.“ deutlich größer.
+- Zusatztext „Persönliche Beratung, starke Fahrzeuge …“ entfernt.
+- „Ihr Opel Servicepartner in Bielefeld“ und die Buttons beginnen bündig an derselben linken Kante.
