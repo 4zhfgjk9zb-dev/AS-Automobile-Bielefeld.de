@@ -68,3 +68,33 @@ h1,h2,h3,p{margin-top:0}.hero h1{font-size:clamp(3rem,6vw,5.2rem);line-height:.9
   .location-photo{min-height:280px}.location-content{padding:45px 24px}.wide-image-section{height:390px}.wide-image-copy{left:24px;right:24px}
   .contact-actions{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-grid{gap:24px}
 }
+
+/* Branding update from supplied 2026 signage artwork */
+.opel-brand{margin-right:auto;display:flex;align-items:center;min-width:150px}
+.opel-brand img{width:118px;height:54px;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 8px rgba(0,0,0,.25))}
+.header-partner-text{color:#dce5e8;font-size:.76rem;font-weight:750;letter-spacing:.04em;white-space:nowrap}
+.hero-content{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.hero-content .eyebrow{align-self:flex-start}
+.hero-brand-lockup{width:min(410px,44vw);display:flex;flex-direction:column;align-items:flex-start;margin:0 0 18px -6px}
+.hero-brand-lockup img{width:100%;max-height:155px;object-fit:contain;object-position:left center;filter:drop-shadow(0 10px 30px rgba(0,0,0,.35))}
+.hero-brand-lockup span{margin-top:5px;margin-left:18px;color:#fff;font-size:clamp(.82rem,1.25vw,1.05rem);font-weight:900;letter-spacing:.36em;padding-left:.36em}
+.hero-copy{margin-left:0;margin-right:0;max-width:560px}
+.hero-actions{justify-content:flex-start}
+
+@media (max-width:980px){
+  .header-partner-text{display:none}
+}
+@media (max-width:650px){
+  .opel-brand{min-width:100px}.opel-brand img{width:92px;height:42px}
+  .hero-brand-lockup{width:min(78vw,350px);margin-left:0}
+  .hero-brand-lockup img{max-height:135px}
+  .hero-brand-lockup span{font-size:.82rem;letter-spacing:.28em;padding-left:.28em;margin-left:10px}
+}
+.footer-as-logo{display:inline-block;margin-bottom:15px}.footer-as-logo img{width:245px;max-height:95px;object-fit:contain;object-position:left center}
+
+/* v4: AS logo sits on the left while the real "AS Automobile" facade lettering stays visible. */
+@media (min-width:981px){
+  .hero-bg{object-position:center 47%}
+  .hero-content{padding-top:62px;padding-bottom:62px}
+  .hero-brand-lockup{transform:translateX(-10px)}
+}

@@ -54,3 +54,11 @@ Empfohlen:
 - Domain/DNS: die bereits registrierte `as-automobile-bielefeld.de`
 
 Die genauen DNS-Schritte sollten erst durchgeführt werden, wenn die Cloudflare-Pages-Adresse feststeht.
+
+
+## Design v4
+- Opel-Logo bleibt oben links im dunklen Header.
+- Das originale AS-Automobile-Logo wurde NICHT verändert.
+- Das AS-Logo im Hero ist kleiner und weiter links positioniert.
+- Dadurch bleibt die echte Beschriftung „AS Automobile“ auf dem Hintergrundfoto besser sichtbar.
+- Das Fahrzeugmotiv im AS-Logo wird nicht gequetscht; das Seitenverhältnis bleibt unverändert.
