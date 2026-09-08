@@ -75,3 +75,17 @@ Die genauen DNS-Schritte sollten erst durchgeführt werden, wenn die Cloudflare-
 - Gelber Text „SEIT 1998 · PERSÖNLICH. VERLÄSSLICH. FÜR SIE DA.“ deutlich größer.
 - Zusatztext „Persönliche Beratung, starke Fahrzeuge …“ entfernt.
 - „Ihr Opel Servicepartner in Bielefeld“ und die Buttons beginnen bündig an derselben linken Kante.
+
+## Team-Karikaturen in den bestehenden Kontaktkarten
+Die finale Website-Struktur bleibt unverändert. Nur die bisherigen Initialen-Avatare wurden durch die freigegebenen Karikatur-Porträts ersetzt. Namen, Funktionen, Telefonnummern und E-Mail-Links bleiben echte anklickbare HTML-Elemente.
+
+## Team-Porträts v2
+- Porträts neu zugeschnitten, damit deutlich mehr Oberkörper sichtbar ist.
+- Eingebrannte Überschriften/Schrift aus der ursprünglichen Teamgrafik sind nicht mehr im sichtbaren Bildbereich.
+- Die bestehenden Kontaktkarten, Telefonnummern und E-Mail-Links bleiben unverändert anklickbar.
+
+## Team-Klickversion
+- Team-Bereich optisch wie die gewünschte Referenz mit sieben einzelnen Karten.
+- Vollständige Namen statt nur Vornamen.
+- Telefonnummer und E-Mail erscheinen erst nach Klick auf den Namen.
+- Telefonnummern und E-Mail-Adressen bleiben direkt anklickbar.
