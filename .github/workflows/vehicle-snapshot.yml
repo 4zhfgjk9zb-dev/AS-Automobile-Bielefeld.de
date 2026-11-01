@@ -1,0 +1,32 @@
+name: Fahrzeugbestand automatisch aktualisieren
+on:
+  schedule:
+    - cron: '17 */3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fahrzeugdaten abrufen
+        run: |
+          python3 - <<'PY'
+          import json,urllib.request,datetime,pathlib
+          url="https://as-automobile-mobile-api.onrender.com/api/vehicles"
+          with urllib.request.urlopen(urllib.request.Request(url,headers={"Accept":"application/json"}),timeout=180) as r:
+              data=json.load(r)
+          vehicles=data if isinstance(data,list) else data.get("ads",data.get("vehicles",[]))
+          if not isinstance(vehicles,list) or not vehicles:
+              raise SystemExit("Kein gültiger Fahrzeugbestand – vorhandenen Snapshot behalten.")
+          payload={"updatedAt":datetime.datetime.now(datetime.timezone.utc).isoformat(),"vehicles":vehicles}
+          pathlib.Path("vehicles-snapshot.json").write_text(json.dumps(payload,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
+          PY
+      - name: Snapshot veröffentlichen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vehicles-snapshot.json
+          git diff --cached --quiet || (git commit -m "Fahrzeug-Snapshot automatisch aktualisieren" && git push)
