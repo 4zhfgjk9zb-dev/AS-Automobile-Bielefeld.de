@@ -229,41 +229,56 @@ $("#vehicle-toggle")?.addEventListener("click", () => {
   }
 });
 
+// GitHub Pages stellt den automatisch erzeugten Snapshot ohne Render-Kaltstart bereit.
+const SNAPSHOT_URL = "vehicles-snapshot.json";
+const DEALER_URL = "https://home.mobile.de/ASAUTOMOBILEGROUP";
+
+function showVehicleData(data, isLive) {
+  const raw = Array.isArray(data) ? data : (data.ads || data.vehicles || []);
+  const items = raw.map(normalizeVehicle);
+  if (!items.length) throw new Error("Keine Fahrzeuge");
+  vehicles = items;
+  populateFilters(vehicles);
+  applyFilters();
+  statusPill.classList.toggle("is-live", isLive);
+  statusPill.innerHTML = isLive
+    ? `<span></span> ${vehicles.length} Fahrzeuge · mobile.de live`
+    : `<span></span> ${vehicles.length} Fahrzeuge · gespeicherter Stand (Verfügbarkeit prüfen)`;
+}
+
 async function loadVehicles() {
-  statusPill.innerHTML = "<span></span> mobile.de wird geladen";
-  grid.innerHTML = `<article class="vehicle-placeholder vehicle-loading">
-    <div class="placeholder-icon">🚗</div>
-    <h3>Fahrzeugbestand wird geladen …</h3>
-    <p>Beim kostenlosen Server kann der erste Aufruf nach längerer Pause etwas dauern.</p>
-  </article>`;
+  let snapshotShown = false;
+  statusPill.innerHTML = "<span></span> Fahrzeugbestand wird geladen";
+
+  // Der statische Snapshot wird zuerst geladen, damit der kostenlose Render-Server
+  // die erste Darstellung nicht blockiert.
+  try {
+    const response = await fetch(SNAPSHOT_URL, { cache: "no-cache" });
+    if (response.ok) {
+      const snapshot = await response.json();
+      if (snapshot.updatedAt && Date.now() - new Date(snapshot.updatedAt).getTime() < 7 * 86400000) {
+        showVehicleData(snapshot.vehicles || [], false);
+        snapshotShown = true;
+      }
+    }
+  } catch (error) {
+    console.info("Noch kein gültiger Fahrzeug-Snapshot:", error);
+  }
 
   try {
-    const response = await fetch(MOBILE_API, {
-      headers: { Accept: "application/json" }
-    });
-
+    const response = await fetch(MOBILE_API, { headers: { Accept: "application/json" } });
     if (!response.ok) throw new Error(`API ${response.status}`);
-
-    const data = await response.json();
-    const raw = Array.isArray(data) ? data : (data.ads || data.vehicles || []);
-    vehicles = raw.map(normalizeVehicle);
-
-    if (!vehicles.length) throw new Error("Keine Fahrzeuge");
-
-    statusPill.classList.add("is-live");
-    statusPill.innerHTML = `<span></span> ${vehicles.length} Fahrzeuge · mobile.de live`;
-
-    populateFilters(vehicles);
-    render(vehicles);
+    showVehicleData(await response.json(), true);
   } catch (error) {
-    console.error("Fahrzeugbestand konnte nicht geladen werden:", error);
+    console.error("Fahrzeugbestand konnte nicht aktualisiert werden:", error);
+    if (snapshotShown) return;
     statusPill.classList.remove("is-live");
     statusPill.innerHTML = "<span></span> mobile.de momentan nicht erreichbar";
     grid.innerHTML = `<article class="vehicle-placeholder">
       <div class="placeholder-icon">🚗</div>
       <h3>Fahrzeuge momentan nicht ladbar</h3>
-      <p>Bitte versuchen Sie es gleich noch einmal oder öffnen Sie unseren aktuellen Bestand direkt bei mobile.de.</p>
-      <a class="btn btn-outline" href="https://home.mobile.de/ASAUTOMOBILEGROUP" target="_blank" rel="noopener">
+      <p>Bitte öffnen Sie unseren aktuellen Bestand direkt bei mobile.de.</p>
+      <a class="btn btn-outline" href="${DEALER_URL}" target="_blank" rel="noopener noreferrer">
         Fahrzeuge auf mobile.de ansehen
       </a>
     </article>`;
